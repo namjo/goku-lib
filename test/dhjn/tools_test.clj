@@ -20,3 +20,16 @@
   (testing "comma-list"
     (is (= (select-comma-list x-map x-keys) "\"0\", \"foo\""))))
 
+(deftest bracket-test
+  (testing "surround string with matching brackets"
+    (is (= (bracket "hallo" ")") "(hallo)"))
+    (is (= (bracket "hallo" "(") "(hallo)"))
+    (is (= (bracket "hallo" "[") "[hallo]"))
+    (is (= (bracket "hallo" "]") "[hallo]"))
+    (is (= (bracket "hallo" "}") "{hallo}"))
+    (is (= (bracket "hallo" "{") "{hallo}"))
+    (is (= (bracket "hallo" "<") "<hallo>"))
+    (is (= (bracket "hallo" ">") "<hallo>"))
+    ))
+
+
